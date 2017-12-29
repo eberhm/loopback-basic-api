@@ -1,0 +1,39 @@
+{
+  "name": "Comment",
+  "plural": "comments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string"
+    },
+    "stars": {
+      "type": "number"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "restaurant": {
+      "type": "belongsTo",
+      "model": "Restaurant",
+      "foreignKey": ""
+    },
+    "commenter": {
+      "type": "belongsTo",
+      "model": "Commenter",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

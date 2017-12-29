@@ -1,0 +1,27 @@
+{
+  "name": "Commenter",
+  "plural": "commenters",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "date_of_birth": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

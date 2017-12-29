@@ -1,0 +1,30 @@
+{
+  "name": "Restaurant",
+  "plural": "restaurants",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "uid": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "city": {
+      "type": "belongsTo",
+      "model": "City",
+      "foreignKey": ""
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

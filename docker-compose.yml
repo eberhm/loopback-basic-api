@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  node-api:
+    image: node:7.10.0-alpine
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - MONGO_URL_DEV=mongodb://mongo/nodejs-api-boilerplate-development
+    links:
+      - mongo
+    command: "node /app/"
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+volumes:
+  mongodb-data:

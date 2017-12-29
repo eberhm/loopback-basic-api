@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongo"
+  },
+  "AccessToken": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongo",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mongo",
+    "public": false
+  },
+  "Commenter": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "City": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "Comment": {
+    "dataSource": "mongo",
+    "public": true
+  },
+  "Restaurant": {
+    "dataSource": "mongo",
+    "public": true
+  }
+}
