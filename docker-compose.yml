@@ -2,23 +2,31 @@ version: "3"
 
 services:
   node-api:
-    image: node:7.10.0-alpine
+    image: node:${NODE_VERSION}
     volumes:
       - .:/app
     ports:
       - "3000:3000"
-    env_file:
-      - .env
+      - "9229:9229"
     environment:
-      - MONGO_URL_DEV=mongodb://mongo/nodejs-api-boilerplate-development
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - ELASTIC_USERNAME=${ELASTIC_USERNAME}
     links:
       - mongo
-    command: "node /app/"
+    command: "node --inspect=0.0.0.0:9229 --debug-brk /app/"
   mongo:
     image: "mongo"
     ports:
       - "27017:27017"
     volumes:
       - mongodb-data:/data/db
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-platinum:${ELASTIC_VERSION}
+    environment: ['http.host=0.0.0.0', 'transport.host=127.0.0.1', 'ELASTIC_PASSWORD=${ELASTIC_PASSWORD}']
+    ports:
+      - "9200:9200"
+    volumes:
+      - elastic-data:/usr/share/elasticsearch/data
 volumes:
   mongodb-data:
+  elastic-data:
