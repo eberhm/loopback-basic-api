@@ -3,17 +3,23 @@
 ## Running it
 
 * clone the repo
+
+```$ git clone https://github.com/eberhm/loopback-basic-api```
+
 * npm install
-* docker-compose -up
 
-It has already a running instance of mongo
+```$ docker-compose run node-api sh -c 'cd /app/ && npm install'```
 
-In your favourite browser. Go to:
+* Run service
+
+```$ docker-compose up -d```
+
+In your browser. Go to:
 
 http://localhost:3000/explorer/ 
 
 ## Getting the swagger.json file
-In your favourite browser. Go to:
+In your browser. Go to:
 
 http://localhost:3000/explorer/swagger.json
 
@@ -24,5 +30,4 @@ https://swagger.io/swagger-codegen/
 
 ## Notes
 
-* It has no scalable strategy for searching. That should be done in an elasticsearch and expose it via remote method
 * If you're using docker-machine in mac, your url should be http://192.168.99.100:3000/explorer/ 
